@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>FluentMigrator.Generator</id>
+    <id>FluentMigrator.Generator.Sakrut</id>
     <version>0.0.0</version>
     <authors>Ritter Insurance Marketing, LLC</authors>
-    <projectUrl>https://github.com/ritterim/fluentmigrator-generator</projectUrl>
-    <licenseUrl>https://raw.githubusercontent.com/ritterim/fluentmigrator-generator/master/LICENSE</licenseUrl>
-    <releaseNotes>https://github.com/ritterim/fluentmigrator-generator/releases</releaseNotes>
+    <projectUrl>https://github.com/sakrut/fluentmigrator-generator</projectUrl>
+    <licenseUrl>https://raw.githubusercontent.com/ritterim/fluentmigrator-generator/master/LICENSE.txt</licenseUrl>
+    <releaseNotes>https://github.com/sakrut/fluentmigrator-generator/releases</releaseNotes>
     <description>Adds a command to the package manager console to generate migrations for FluentMigrator.</description>
     <copyright>Copyright 2016 Ritter Insurance Marketing, LLC</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <developmentDependency>true</developmentDependency>
     <language>en-US</language>
-    <tags>fluentmigrator migrations</tags>
+    <tags>fluentmigrator migrations sakrut</tags>
     <dependencies>
       <dependency id="FluentMigrator" version="[1,2)" />
     </dependencies>

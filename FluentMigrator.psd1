@@ -6,7 +6,7 @@
     ModuleVersion = '1.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = '01820234-1d7c-4b25-8d01-a9d5e108f77b'
+    GUID = '0D95AE3A-4460-4F76-9E18-80727754D9A8'
 
     # Author of this module
     Author = 'Ritter Insurance Marketing'

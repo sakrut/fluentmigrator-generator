@@ -1,4 +1,4 @@
-function Add-FluentMigration
+function Add-Update-FluentMigration
 {
     [CmdletBinding(DefaultParameterSetName = 'Name')]
     param (
@@ -21,11 +21,21 @@ function Add-FluentMigration
     $namespace = $project.Properties.Item("DefaultNamespace").Value.ToString() + ".Migrations"
     $projectPath = [System.IO.Path]::GetDirectoryName($project.FullName)
     $migrationsPath = [System.IO.Path]::Combine($projectPath, "Migrations")
+	$resourcesPath = [System.IO.Path]::Combine($projectPath, "Resources")
+	$resourcesUpdatesPath = [System.IO.Path]::Combine($resourcesPath, "Updates")
+	
     $outputPath = [System.IO.Path]::Combine($migrationsPath, "$timestamp" + "_$name.cs")
+	$sqlUpdateName = "update_$timestamp" + "_$name"
+	$outputPathSql = [System.IO.Path]::Combine($resourcesUpdatesPath, "$sqlUpdateName.sql")
 
     if (-not (Test-Path $migrationsPath))
     {
         [System.IO.Directory]::CreateDirectory($migrationsPath)
+    }
+	
+	if (-not (Test-Path $resourcesUpdatesPath))
+    {
+        [System.IO.Directory]::CreateDirectory($resourcesUpdatesPath)
     }
 
     "using FluentMigrator;
@@ -37,6 +47,7 @@ namespace $namespace
     {
         public override void Up()
         {
+			Execute.Sql(Resources.$sqlUpdateName);
         }
 
         public override void Down()
@@ -45,8 +56,12 @@ namespace $namespace
     }
 }" | Out-File -Encoding "UTF8" -Force $outputPath
 
+    "--Migration $timestamp $name" | Out-File -Encoding "UTF8" -Force $outputPathSql
+
     $project.ProjectItems.AddFromFile($outputPath)
+	$sqlFile = $project.ProjectItems.AddFromFile($outputPathSql)
+	$sqlFile.Properties.Item("BuildAction").Value = [int]3
     $project.Save()
 }
 
-Export-ModuleMember @( 'Add-FluentMigration' )
+Export-ModuleMember @( 'Add-Update-FluentMigration' )
