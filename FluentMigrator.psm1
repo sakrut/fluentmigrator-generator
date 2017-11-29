@@ -1,4 +1,4 @@
-function Add-Update-FluentMigration
+function psAddMig
 {
     [CmdletBinding(DefaultParameterSetName = 'Name')]
     param (
@@ -62,6 +62,8 @@ namespace $namespace
 	$sqlFile = $project.ProjectItems.AddFromFile($outputPathSql)
 	$sqlFile.Properties.Item("BuildAction").Value = [int]3
     $project.Save()
+
+	$DTE.ExecuteCommand(“File.OpenFile”, $outputPathSql)
 }
 
-Export-ModuleMember @( 'Add-Update-FluentMigration' )
+Export-ModuleMember @( 'psAddMig' )
