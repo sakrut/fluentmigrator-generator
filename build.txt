@@ -1,0 +1,1 @@
+C:\GIT\sakrut\fluentmigrator-generator>C:\Users\sakrut\Documents\nuget.exe pack FluentMigrator.Generator.nuspec

@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>FluentMigrator.Generator.Sakrut</id>
-    <version>0.0.0</version>
+    <version>0.0.1</version>
     <authors>Ritter Insurance Marketing, LLC</authors>
     <projectUrl>https://github.com/sakrut/fluentmigrator-generator</projectUrl>
     <licenseUrl>https://raw.githubusercontent.com/ritterim/fluentmigrator-generator/master/LICENSE.txt</licenseUrl>
