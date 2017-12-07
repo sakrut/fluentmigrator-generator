@@ -18,18 +18,20 @@ PM > Install-Package FluentMigrator.Generator
 
 Once installed, open the `Package Manager Console` in Visual Studio. To get there, go to `View > Other Windows > Package Manager Console`. **Remember to select the active project via the `Default Project` dropdown.**
 
-In the new window, type `Add-FluentMigration` followed by the name of your migration.
+In the new window, type `psAddMig` followed by the Version of your migration.
 
 ```console
-Add-FluentMigration InitialMigration
+psAddMig 15
 ```
 
 You should see the following structure in the `Default Project` project.
 
 ```
 ConsoleApplication1
-|- /Migrations
-    |- 20160219141436_InitialMigration.cs
+|- /MigrationClasses
+    |- mig15.cs
+|- /MigrationScripts
+    |- mig15.sql
 ```
 
 The migration file contents should look like the following.
@@ -39,13 +41,13 @@ using FluentMigrator;
 
 namespace ConsoleApplication1.Migrations
 {
-    [Migration(20160219141436)]
-    public class InitialMigration : Migration
+    [Migration(15)]
+    public class mig15 : Migration
     {
         public override void Up()
         {
+			Execute.Sql(Resources.mig15);
         }
-
         public override void Down()
         {
         }
