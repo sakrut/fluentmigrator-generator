@@ -13,7 +13,7 @@ It couldn't be easier!
 ## Getting Started
 
 ```console
-PM > Install-Package FluentMigrator.Generator
+PM > Install-Package FluentMigrator.Generator.Sakrut -Version 0.0.1
 ```
 
 Once installed, open the `Package Manager Console` in Visual Studio. To get there, go to `View > Other Windows > Package Manager Console`. **Remember to select the active project via the `Default Project` dropdown.**
