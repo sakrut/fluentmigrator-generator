@@ -24,7 +24,7 @@ function psAddMig
     $migrationsPath = [System.IO.Path]::Combine($projectPath, "MigrationClasses")
 	$migrationScriptsPath = [System.IO.Path]::Combine($projectPath, "MigrationScripts")
 
-    $outputPath = [System.IO.Path]::Combine($migrationsPath, "mig$Version.cs")
+    $outputPath = [System.IO.Path]::Combine($migrationsPath, "Mig$Version.cs")
 	$sqlUpdateName = "mig$Version"
 	$outputPathSql = [System.IO.Path]::Combine($migrationScriptsPath, "$sqlUpdateName.sql")
 
